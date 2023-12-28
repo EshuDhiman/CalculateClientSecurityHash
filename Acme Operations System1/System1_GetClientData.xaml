@@ -50,7 +50,7 @@
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="39">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="78">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>System.Private.CoreLib</AssemblyReference>
@@ -89,6 +89,12 @@
       <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
       <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="System1_GetClientData" sap:VirtualizedContainerService.HintSize="496,990.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
@@ -128,7 +134,7 @@
                 <OutArgument x:TypeArguments="x:String">[out_ClientID]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[ClientDataText.Split("Client ID: ")(1).Split(" ")(0)]</InArgument>
+                <InArgument x:TypeArguments="x:String">[ClientDataText.Split("Client ID: ")(1).Split(" ")(0).Trim]</InArgument>
               </Assign.Value>
             </Assign>
             <Assign DisplayName="Assign - Client Name" sap:VirtualizedContainerService.HintSize="337.6,73.6" sap2010:WorkflowViewState.IdRef="Assign_2">
@@ -136,7 +142,7 @@
                 <OutArgument x:TypeArguments="x:String">[out_ClientName]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[ClientDataText.Split(" Client Name: ")(1).Split("Client Country: ")(0)]</InArgument>
+                <InArgument x:TypeArguments="x:String">[ClientDataText.Split(" Client Name: ")(1).Split("Client Country: ")(0).Trim]</InArgument>
               </Assign.Value>
             </Assign>
             <Assign DisplayName="Assign - Client Country" sap:VirtualizedContainerService.HintSize="337.6,73.6" sap2010:WorkflowViewState.IdRef="Assign_3">
@@ -144,7 +150,7 @@
                 <OutArgument x:TypeArguments="x:String">[out_ClientCountry]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[ClientDataText.Split(" Client Name: ")(1).Split("Client Country: ")(1)]</InArgument>
+                <InArgument x:TypeArguments="x:String">[ClientDataText.Split(" Client Name: ")(1).Split("Client Country: ")(1).Trim]</InArgument>
               </Assign.Value>
             </Assign>
           </Sequence>
